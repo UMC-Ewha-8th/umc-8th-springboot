@@ -7,6 +7,8 @@ import yooni.spring.domain.Mission;
 import yooni.spring.domain.common.BaseEntity;
 import yooni.spring.domain.enums.MissionStatus;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @Builder
@@ -28,5 +30,7 @@ public class MemberMission extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mission_id")
     private Mission mission;
+
+    private LocalDateTime attemptTime;
 
 }
