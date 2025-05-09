@@ -3,7 +3,7 @@ package yooni.spring.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import yooni.spring.domain.common.BaseEntity;
-import yooni.spring.domain.enums.Gender;
+import yooni.spring.domain.enums.Region;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ public class Store extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(20)")
-    private String region;
+    private Region region;
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Mission> missionList = new ArrayList<>();
