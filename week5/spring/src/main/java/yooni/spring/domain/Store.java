@@ -3,7 +3,6 @@ package yooni.spring.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import yooni.spring.domain.common.BaseEntity;
-import yooni.spring.domain.enums.Region;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +36,8 @@ public class Store extends BaseEntity {
     @Column(length = 10)
     private Float score;
 
-    @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "VARCHAR(20)")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "region_id", nullable = false)
     private Region region;
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
@@ -46,4 +45,15 @@ public class Store extends BaseEntity {
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Review> reviewList = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", score=" + score +
+                ", region=" + (region != null ? region.getName() : "N/A") + // region의 이름 출력
+                '}';
+    }
 }

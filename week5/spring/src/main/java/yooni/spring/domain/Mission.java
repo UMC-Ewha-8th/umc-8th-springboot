@@ -23,8 +23,9 @@ public class Mission extends BaseEntity {
     @Column(nullable = false)
     private Integer reward;
 
-    @Column(nullable = false)
-    private LocalDate deadline;
+    @Builder.Default
+    @Column
+    private LocalDate deadline = LocalDate.now().plusDays(3);
 
     @Column(length = 255)
     private String missionSpec;
