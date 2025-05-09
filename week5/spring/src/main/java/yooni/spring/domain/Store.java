@@ -34,6 +34,9 @@ public class Store extends BaseEntity {
     @Column(length = 10)
     private String status;
 
+    @Column(length = 10)
+    private Float score;
+
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(20)")
     private Region region;
