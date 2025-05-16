@@ -1,11 +1,9 @@
 package yooni.spring.repository;
 
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import yooni.spring.domain.Mission;
 
-import java.util.List;
-
-public interface MissionQueryRepository {
-
-    List<Mission> findMissionsByUserId(Long userId, Pageable pageable);
+@Repository
+public interface MissionQueryRepository extends JpaRepository<Mission, Long>, MissionQueryRepositoryCustom {
 }

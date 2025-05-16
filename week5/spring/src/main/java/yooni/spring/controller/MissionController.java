@@ -17,10 +17,5 @@ public class MissionController {
 
     private final MissionQueryService missionQueryService;
 
-    @GetMapping("/my")
-    public Page<Mission> getMyMissions(@AuthenticationPrincipal MemberDetails memberDetails,
-                                       @PageableDefault(size = 10) Pageable pageable) {
-        Long userId = memberDetails.getId(); // 또는 .getMember().getId()
-        return missionQueryService.getMissionsByUserId(userId, pageable);
-    }
+
 }

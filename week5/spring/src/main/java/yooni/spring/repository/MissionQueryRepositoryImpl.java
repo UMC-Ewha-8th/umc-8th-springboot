@@ -11,7 +11,7 @@ import yooni.spring.domain.mapping.QMemberMission;
 import java.util.List;
 
 @RequiredArgsConstructor
-public class MissionQueryRepositoryImpl implements MissionQueryRepository {
+public class MissionQueryRepositoryImpl implements MissionQueryRepositoryCustom {
 
     private final JPAQueryFactory queryFactory;
 
